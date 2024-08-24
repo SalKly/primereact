@@ -117,12 +117,19 @@ export const Button = React.memo(
                 ref: elementRef,
                 'aria-label': defaultAriaLabel,
                 'data-pc-autofocus': props.autoFocus,
-                className: classNames(props.className, cx('root', { size, disabled })),
+                className: classNames(cx('root', { size, disabled }),props.className),
                 disabled: disabled
             },
             ButtonBase.getOtherProps(props),
             ptm('root')
         );
+
+        console.log("....................................START..................................................")
+        console.log(classNames(props.className,cx('root', { size, disabled })),"I am the old way of handling classes")
+        console.log(classNames(cx('root', { size, disabled }),props.className),"I am the new way of handling classes")
+        console.log(rootProps,"I am the root props here")
+        console.log(".....................................END.................................................")
+
 
         return (
             <>
